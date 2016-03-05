@@ -11,15 +11,37 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:id="@+id/EquationBox"
-        android:background="#000010">
+        android:background="#000010"
+        android:orientation="horizontal">
 
         <EditText
+            android:inputType="text"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="30dp"
             android:clickable="false"
-            android:editable="false"
             android:textColor="#FFFFFF"
-            android:text="Siia tuleb summa vms"/>
+            android:text="Siia tuleb summa vms"
+            android:editable="false"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#FF0000">
+
+        <Button
+            android:id="@+id/button1"
+            android:text="1"
+            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 </LinearLayout>
