@@ -22,13 +22,13 @@
             android:textColor="#FFFFFF"
             android:text="Siia tuleb summa vms"
             android:editable="false"/>
-        <Button
+       <!-- <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Erase"
             android:background="#252525"
             android:textColor="#FFFFFF"
-            android:layout_gravity="right"/>
+            android:layout_gravity="right"/> -->
 
     </LinearLayout>
     <android.support.percent.PercentRelativeLayout
