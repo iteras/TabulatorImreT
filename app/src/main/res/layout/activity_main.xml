@@ -28,20 +28,143 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
-
-    <RelativeLayout
+    <android.support.percent.PercentRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#000010"
+        android:clickable="false"
+        android:contextClickable="true">
 
-        android:background="#FF0000">
 
         <Button
             android:id="@+id/button1"
             android:text="1"
             android:layout_alignParentTop="true"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+        <Button
+            android:id="@+id/button2"
+            android:text="2"
+            android:layout_toRightOf="@id/button1"
+            android:layout_alignParentTop="true"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+        <Button
+            android:id="@+id/button3"
+            android:text="3"
+            android:layout_toRightOf="@id/button2"
+            android:layout_alignParentTop="true"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+        <Button
+            android:id="@+id/buttonC"
+            android:text="C"
+            android:layout_toRightOf="@id/button3"
+            android:layout_alignParentTop="true"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+        <Button
+            android:id="@+id/button4"
+            android:text="4"
+            android:layout_toLeftOf="@id/button2"
+            android:layout_below="@id/button1"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/button5"
+            android:text="5"
+            android:layout_toRightOf="@id/button4"
+            android:layout_below="@id/button1"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+
+        <Button
+            android:id="@+id/button6"
+            android:text="6"
+            android:layout_toRightOf="@id/button5"
+            android:layout_below="@id/button1"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+
+        <Button
+            android:id="@+id/buttonX"
+            android:text="*"
+            android:layout_toRightOf="@id/button6"
+            android:layout_below="@id/button1"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+
+        <Button
+            android:id="@+id/button7"
+            android:text="7"
+            android:layout_toLeftOf="@id/button2"
+            android:layout_below="@id/button4"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+
+        <Button
+            android:id="@+id/button8"
+            android:text="8"
+            android:layout_toRightOf="@id/button7"
+            android:layout_below="@id/button4"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+
+        <Button
+            android:id="@+id/button9"
+            android:text="9"
+            android:layout_toRightOf="@id/button8"
+            android:layout_below="@id/button4"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+
+        <Button
+            android:id="@+id/button0"
+            android:text="0"
+            android:layout_toRightOf="@id/button9"
+            android:layout_below="@id/button4"
+            app:layout_heightPercent="10%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
+
+    </android.support.percent.PercentRelativeLayout>
 </LinearLayout>
