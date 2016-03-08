@@ -47,7 +47,7 @@
         android:clickable="false"
         >
 
-
+<!-- test to showgit -->
         <Button
             android:id="@+id/button1"
             android:text="1"
