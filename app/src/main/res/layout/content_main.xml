@@ -82,8 +82,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"/>
+
+
+        <!-- Clear button -->
         <Button
-            android:id="@+id/buttonC"
+            android:id="@+id/C"
             android:text="C"
             style="@style/calcbuttons"
             android:layout_toRightOf="@id/button3"
@@ -129,8 +132,10 @@
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"/>
 
+
+        <!-- Times button -->
         <Button
-            android:id="@+id/buttonX"
+            android:id="@+id/X"
             android:text="*"
             style="@style/calcbuttons"
             android:layout_toRightOf="@id/button6"
@@ -177,8 +182,10 @@
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"/>
 
+
+        <!-- Divide button -->
         <Button
-            android:id="@+id/buttonDivide"
+            android:id="@+id/D"
             android:text="/"
             style="@style/calcbuttons"
             android:layout_toRightOf="@id/button9"
@@ -200,8 +207,10 @@
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"/>
 
+
+        <!-- Equals button -->
         <Button
-            android:id="@+id/buttonEquals"
+            android:id="@+id/E"
             android:text="="
             style="@style/calcbuttons"
             android:layout_toRightOf="@id/button0"
@@ -211,22 +220,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"/>
+
+        <!-- Plus button -->
         <Button
-            android:id="@+id/buttonPlus"
+            android:id="@+id/P"
             android:text="+"
             style="@style/calcbuttons"
-            android:layout_toRightOf="@id/buttonEquals"
+            android:layout_toRightOf="@id/E"
             android:layout_below="@id/button8"
             app:layout_heightPercent="20%"
             app:layout_widthPercent="25%"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonClicked"/>
+
+
+        <!-- Minus button -->
         <Button
-            android:id="@+id/buttonMinus"
+            android:id="@+id/M"
             android:text="-"
             style="@style/calcbuttons"
-            android:layout_toRightOf="@id/buttonPlus"
+            android:layout_toRightOf="@id/P"
             android:layout_below="@id/button8"
             app:layout_heightPercent="20%"
             app:layout_widthPercent="25%"

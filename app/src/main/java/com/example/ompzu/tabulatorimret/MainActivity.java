@@ -10,11 +10,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import com.example.ompzu.tabulatorimret.CalcEngine;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ArrayList<String> input = new ArrayList<String>();
+
+    public static String nr = "";
     private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +32,44 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonClicked(View view){
         Button btn = (Button) view;
+
         String btnId = btn.getResources().getResourceName(btn.getId());
+        btnId = btnId.substring(btnId.length() - 1, btnId.length());
+
+        if(!btnId.equals("P") && !btnId.equals("M") && !btnId.equals("X") &&
+                !btnId.equals("D") && !btnId.equals("C") && !btnId.equals("E") ){ //input is number
+            nr = nr + btnId; //click 7 nr is 7, click 4 and nr is 74, click 1 nr is 741
+        }
+
+        if (btnId.equals("P") || btnId.equals("M") || btnId.equals("X") || btnId.equals("D")) { //input is operation
+            input.add(nr);
+            nr = ""; //remove number from memory
+            input.add(btnId);
+        }
+
+        if(btnId.equals("E")){ //input is equals
+            input.add(nr);
+            nr = "";//remove number from memory
+            if(input.size() < 3) input.indexOf(0); //TODO// in finishing, send result to displayscreen
+        }
+
+        if(btnId.contains("C")) { //input is Clear function
+            input.clear();
+            nr = "";//remove number from memory
+            if(BuildConfig.DEBUG) Log.d( TAG,"Array reset: " + input.toString());
+        }
+
+       // input.add(nr);
+        if(input.size() == 3 && input.get(0).contains(CalcEngine.numerics()) //TODO
+                &&(input.contains("P") || input.contains("M") || input.contains("X") || input.contains("D"))){
+           input = CalcEngine.operation(input); //the operation will be done and equation will be calculated
+        }
         if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Button clicked: " + btnId.substring(btnId.length() - 1, btnId.length()));
-        }
-        input.add(btnId);
-        if(input.size() == 3){
-            if(input.contains("buttonPlus")){
-                double a = Double.parseDouble(input.get(0));
-                double b = Double.parseDouble(input.get(2));
-                double result = CalcEngine.plus(a,b);
-                input.clear();
-                input.add(String.valueOf(result));
-            }
-        }
-        if(input.contains("E")){
+            Log.d(TAG, "Button clicked: " + btnId + " in array: " + input.toString());
+
 
         }
-        int a = Integer.parseInt(btnId.substring(btnId.length() - 1, btnId.length()));
+
 
     }
 
