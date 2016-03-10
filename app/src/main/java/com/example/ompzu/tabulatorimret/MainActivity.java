@@ -18,19 +18,29 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> input = new ArrayList<String>();
-    private TextView textViewResult;
-    public static String nr = "";
-    private static String showResult="";
-    private static String showEquation="";
-    private static String btnId="";
+    private ArrayList<String> input = new ArrayList<String>(); //consists of 2 numbers and operation( [1,P,99] is 1 + 99
+    private TextView textViewResult; //used in showing text on display
+    private String nr = ""; //used in building numbers, as for creating numbers like 22, 99,43435
+    private static String showResult=""; //used at end to show result
+    private static String showEquation=""; //used at end to show what were in equation
+    private static String btnId=""; //used to work with inputs, as input ID's go in this variable
     private static final String TAG = "MainActivity";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "onCreate called");
+        }
+        if(savedInstanceState != null){
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, "Restoring state");
+            }
+            nr = savedInstanceState.getString("nr");
+            input = savedInstanceState.getStringArrayList("input");
+
         }
         textViewResult = (TextView) findViewById(R.id.textViewResult);
     }
@@ -62,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
         if(!btnId.equals("P") && !btnId.equals("M") && !btnId.equals("X") &&
                 !btnId.equals("D") && !btnId.equals("C") && !btnId.equals("E") &&
                 !btnId.equals("W") && !btnId.equals("N") && !btnId.equals("S")){ //input is number
-            if(btnId.equals("K") && !input.contains(".")){
+            if(btnId.equals("K") && !nr.contains(".")){ //inserts Coma to string
                 btnId = ".";
                 nr = nr + btnId;
-            } else {
+            } else if(!btnId.equals("K")) {
                 nr = nr + btnId; //click 7 nr is 7, click 4 and nr is 74, click 1 nr is 741
                 showEquation = showEquation + btnId;
             }
@@ -105,29 +115,41 @@ public class MainActivity extends AppCompatActivity {
             secondOsCheck = CalcEngine.compare(input.get(2)); //returns 0 if string in arraylist slot equals to operation, else its number
         }
 
-            if(input.size() == 3 && firstOsCheck != 0 && secondOsCheck != 0
-                    &&(input.contains("P") || input.contains("M") || input.contains("X") ||
-                    input.contains("D") || input.contains("W"))){
+        if(input.size() == 3 && firstOsCheck != 0 && secondOsCheck != 0
+                &&(input.contains("P") || input.contains("M") || input.contains("X") ||
+                input.contains("D") || input.contains("W"))){
+
                 input = CalcEngine.operation(input); //the operation will be done and equation will be calculated
+                nr = "";
+
         } else if(input.size() == 2 && (btnId.contains("S") ||btnId.contains("N"))){
+
                 input = CalcEngine.operation(input); //the operation will be done and equation will be calculated
+                nr = "";
             }
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Button clicked: " + btnId + " in array: " + input.toString());
-        }
+
 
         if(input.size() == 1){
             showResult = input.get(0);
         }
 
         textViewResult = (TextView) findViewById(R.id.textViewResult);
-        if(btnId.equals("E")) {
-            textViewResult.setText( showEquation = showEquation + " = " + showResult);
+        if(btnId.equals("E") || ((btnId.equals("P") || btnId.equals("M") || btnId.equals("X") || btnId.equals("D") ||
+                btnId.equals("W") || btnId.equals("N") || btnId.equals("S")) && input.size() > 2)) {
+            if(!btnId.equals("E")){
+                nr = "";
+                input.add(btnId);
+            }
+            nr = ""; //neccesery for after Equals button pressing, cleans variable "nr"
+            showEquation = showEquation + " = " + showResult + " " + showResult ;
+            textViewResult.setText(showEquation);
         } else  {
-
             textViewResult.setText(showEquation + " ");
-        }
 
+        }
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "Button clicked: " + btnId + " in array: " + input.toString() + " And nr: " + nr);
+        }
     }
 
 
@@ -150,7 +172,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        savedInstanceState.putStringArrayList("input", input);
+        savedInstanceState.putString("nr", nr);
+        super.onSaveInstanceState(savedInstanceState);
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "Saving state");
+        }
+    }
     @Override
     protected void onPause() {
         super.onPause();
