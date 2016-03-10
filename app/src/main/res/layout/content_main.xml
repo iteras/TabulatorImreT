@@ -2,29 +2,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/FullScreen"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical">
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:id="@+id/EquationBox"
         android:background="#000010"
-        android:orientation="vertical">
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/textViewResult"
             android:inputType="text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:maxLines="2"
             android:textSize="30dp"
             android:clickable="false"
             android:textColor="#FFFFFF"
             android:text="0"
-            android:editable="false"/>
+            android:editable="false"
+            android:lines="2"
+            android:maxHeight="100dp"
+             />
         <!-- <Button
              android:layout_width="wrap_content"
              android:layout_height="match_parent"
