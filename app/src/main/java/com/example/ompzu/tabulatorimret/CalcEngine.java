@@ -56,13 +56,13 @@ public class CalcEngine {
         if(in.contains("M")){ //minus
             result = minus(a, b);
         }
-        if(in.contains("W")){
+        if(in.contains("W")){ //power
             result = Math.pow(a, b);
         }
-        if(in.contains("N")){
+        if(in.contains("N")){ //sin
             result = Math.sin(a);
         }
-        if(in.contains("S")){
+        if(in.contains("S")){ //cos
             result = Math.cos(a);
         }
         in.clear();
