@@ -15,14 +15,15 @@
         android:id="@+id/EquationBox"
         android:background="#000010"
         android:orientation="vertical">
-        <EditText
+        <TextView
+            android:id="@+id/textViewResult"
             android:inputType="text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:clickable="false"
             android:textColor="#FFFFFF"
-            android:text="Siia tuleb summa vms"
+            android:text="0"
             android:editable="false"/>
         <!-- <Button
              android:layout_width="wrap_content"
@@ -242,6 +243,58 @@
             style="@style/calcbuttons"
             android:layout_toRightOf="@id/P"
             android:layout_below="@id/button8"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonClicked"/>
+
+        <!-- Sin button -->
+        <Button
+            android:id="@+id/N"
+            android:text="sin"
+            style="@style/calcbuttons"
+            android:layout_toLeftOf="@id/E"
+            android:layout_below="@id/button0"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonClicked"/>
+
+        <!-- Cos button -->
+        <Button
+            android:id="@+id/S"
+            android:text="cos"
+            style="@style/calcbuttons"
+            android:layout_toRightOf="@id/N"
+            android:layout_below="@id/button0"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonClicked"/>
+
+        <!-- Power button -->
+        <Button
+            android:id="@+id/W"
+            android:text="^"
+            style="@style/calcbuttons"
+            android:layout_toRightOf="@id/S"
+            android:layout_below="@id/button0"
+            app:layout_heightPercent="20%"
+            app:layout_widthPercent="25%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonClicked"/>
+
+        <!-- Coma button -->
+        <Button
+            android:id="@+id/K"
+            android:text=","
+            style="@style/calcbuttons"
+            android:layout_toRightOf="@id/W"
+            android:layout_below="@id/button0"
             app:layout_heightPercent="20%"
             app:layout_widthPercent="25%"
             android:layout_width="wrap_content"
