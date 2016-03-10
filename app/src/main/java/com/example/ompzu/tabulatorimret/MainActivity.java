@@ -51,13 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
          btnId = btn.getResources().getResourceName(btn.getId());
          btnId = btnId.substring(btnId.length() - 1, btnId.length());
-       /* if(mem.isEmpty()){
-            btnId = btnId.substring(btnId.length() - 1, btnId.length());
-            mem = btnId;
-        } else {
-            btnId = mem;
-        }
-*/
+
 
 
         if(btnId.equals("E")){ //input is equals
@@ -66,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 nr = "";//remove number from memory
             }
-            if(input.size() < 3) input.indexOf(0); //TODO// in finishing, send result to displayscreen
         }
 
         if(!btnId.equals("P") && !btnId.equals("M") && !btnId.equals("X") &&
@@ -141,16 +134,30 @@ public class MainActivity extends AppCompatActivity {
                 input.add(btnId);
             }
             nr = ""; //neccesery for after Equals button pressing, cleans variable "nr"
-            showEquation = showEquation + " = " + showResult + " " + showResult ;
+            showEquation = showEquation + "=" + showResult + " " ;
             textViewResult.setText(showEquation);
         } else  {
             textViewResult.setText(showEquation + " ");
 
         }
+
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "Button clicked: " + btnId + " in array: " + input.toString() + " And nr: " + nr);
         }
+
+        if(showEquation.length() > 35){
+            ((TextView) findViewById(R.id.textViewResult)).setTextSize(20);
+        }
+        if(showEquation.length() > 55){
+            ((TextView) findViewById(R.id.textViewResult)).setTextSize(15);
+        }
+
+        if(showEquation.length() < 25){
+            ((TextView) findViewById(R.id.textViewResult)).setTextSize(35);
+        }
     }
+
+
 
 
     @Override
