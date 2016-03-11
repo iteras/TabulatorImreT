@@ -67,22 +67,33 @@ public class MainActivity extends AppCompatActivity {
                 !btnId.equals("W") && !btnId.equals("N") && !btnId.equals("S")){ //input is number
             if(btnId.equals("K") && !nr.contains(".")){ //inserts Coma to string
                 btnId = ".";
-                nr = nr + btnId;
+                    nr = nr + btnId;
+                    showEquation = showEquation + btnId;
+
+
             } else if(!btnId.equals("K")) {
-                nr = nr + btnId; //click 7 nr is 7, click 4 and nr is 74, click 1 nr is 741
-                showEquation = showEquation + btnId;
+                if(btnId.equals("0") && !nr.equals("0")){
+                    nr = nr + btnId; //click 7 nr is 7, click 4 and nr is 74, click 1 nr is 741
+                    showEquation = showEquation + btnId;
+                }else {
+                    nr = nr + btnId; //click 7 nr is 7, click 4 and nr is 74, click 1 nr is 741
+                    showEquation = showEquation + btnId;
+                }
+
+
             }
+
 
         }
 
         if (btnId.equals("P") || btnId.equals("M") || btnId.equals("X") || btnId.equals("D") ||
                 btnId.equals("W") || btnId.equals("N") || btnId.equals("S") ) { //input is operation
             if(!nr.isEmpty()){
-                input.add(nr); //operation inserted, finsih the nr, add to arraylist and clean the string
+                input.add(nr); //operation pressed, finsih the nr, add to arraylist and clean the string
             }
-            if(input.size() == 1 && input.size() < 3){
+            if(input.size() == 1){
                 nr = ""; //remove number from memory
-                showEquation = showEquation + btn.getText().toString();
+                showEquation = showEquation + btn.getText().toString(); //displays operation marks
                 input.add(btnId);
             }
 
@@ -91,10 +102,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(btnId.contains("C")) { //input is Clear function
-            input.clear();
+            input.clear(); //clean arrayList
             nr = "";//remove number from memory
-            showResult ="";
-            showEquation="";
+            showResult =""; //clean display result
+            showEquation=""; //clean display equation
             if(BuildConfig.DEBUG) Log.d( TAG,"Array reset: " + input.toString());
         }
         int firstOsCheck = 0;
@@ -108,33 +119,44 @@ public class MainActivity extends AppCompatActivity {
             secondOsCheck = CalcEngine.compare(input.get(2)); //returns 0 if string in arraylist slot equals to operation, else its number
         }
 
-        if(input.size() == 3 && firstOsCheck != 0 && secondOsCheck != 0
+        if(input.size() >= 3 && firstOsCheck != 0 && secondOsCheck != 0
                 &&(input.contains("P") || input.contains("M") || input.contains("X") ||
                 input.contains("D") || input.contains("W"))){
 
                 input = CalcEngine.operation(input); //the operation will be done and equation will be calculated
+                 if(input.size() == 1){
+                    showResult = input.get(0);
+                 }
                 nr = "";
 
         } else if(input.size() == 2 && (btnId.contains("S") ||btnId.contains("N"))){
 
                 input = CalcEngine.operation(input); //the operation will be done and equation will be calculated
                 nr = "";
+                if(input.size() == 1){
+                    showResult = input.get(0);
+                }
             }
 
 
-        if(input.size() == 1){
+      /*  if(input.size() == 1){
             showResult = input.get(0);
         }
-
+*/
         textViewResult = (TextView) findViewById(R.id.textViewResult);
-        if(btnId.equals("E") || ((btnId.equals("P") || btnId.equals("M") || btnId.equals("X") || btnId.equals("D") ||
-                btnId.equals("W") || btnId.equals("N") || btnId.equals("S")) && input.size() > 2)) {
+        if(btnId.equals("E") || (btnId.equals("P") || btnId.equals("M") || btnId.equals("X") || btnId.equals("D") ||
+                btnId.equals("W") || btnId.equals("N") || btnId.equals("S") && input.size() > 2)) { //lets continue calculate w/o pressing "=" but any other
+                                                                                                        //operation button
             if(!btnId.equals("E")){
-                nr = "";
-                input.add(btnId);
+
+                //nr = ""; //seesms it is not used
+              //  input.add(btnId);
             }
             nr = ""; //neccesery for after Equals button pressing, cleans variable "nr"
-            showEquation = showEquation + "=" + showResult + " " ;
+            if(input.size() == 1){
+                showEquation = showEquation + "=" + showResult + " " ;
+            }
+
             textViewResult.setText(showEquation);
         } else  {
             textViewResult.setText(showEquation + " ");
@@ -145,6 +167,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Button clicked: " + btnId + " in array: " + input.toString() + " And nr: " + nr);
         }
 
+
+        //3 If's below change font size according to how long equations are displayed
         if(showEquation.length() > 35){
             ((TextView) findViewById(R.id.textViewResult)).setTextSize(20);
         }
