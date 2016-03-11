@@ -138,12 +138,12 @@ public class MainActivity extends AppCompatActivity {
               //  input.add(btnId);
             }
             nr = ""; //neccesery for after Equals button pressing, cleans variable "nr"
-            if(input.size() == 1){
-                showEquation = showEquation + "=" + showResult + " " ;
+            if(input.size() == 1){ //if only numeric is inserted then displa
+                showEquation = showEquation + "=" + showResult + " " ; //string which is displayed
             }
-            textViewResult.setText(showEquation);
+            textViewResult.setText(showEquation); //displaying
         } else  {
-            textViewResult.setText(showEquation + " ");
+            textViewResult.setText(showEquation + " "); //displaying
         }
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "Button clicked: " + btnId + " in array: " + input.toString() + " And nr: " + nr);
@@ -151,15 +151,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         //3 If's below change font size according to how long equations are displayed
-        if(showEquation.length() > 35){
-            ((TextView) findViewById(R.id.textViewResult)).setTextSize(20);
+        if(showEquation.length() > 25){
+            ((TextView) findViewById(R.id.textViewResult)).setTextSize(25);
         }
         if(showEquation.length() > 55){
             ((TextView) findViewById(R.id.textViewResult)).setTextSize(15);
         }
 
         if(showEquation.length() < 25){
-            ((TextView) findViewById(R.id.textViewResult)).setTextSize(35);
+            ((TextView) findViewById(R.id.textViewResult)).setTextSize(45);
         }
     }
 
