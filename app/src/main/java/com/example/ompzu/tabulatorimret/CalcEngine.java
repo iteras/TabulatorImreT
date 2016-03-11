@@ -9,7 +9,6 @@ import java.math.*;
 public class CalcEngine {
     private static final String TAG = "CalcEngine";
     public static final String[] op = {"C", "X","D","E", "P", "M", "N", "S","W","K" };
-   // public ArrayList<String> input = new ArrayList<String>();
 
     public static int compare(String str){  //detects if number or operation, returns 0 as operation, anything else is number
         int result = 9; //random number, must not be 0 at start
@@ -21,14 +20,6 @@ public class CalcEngine {
         return result;
     }
 
-    /*public static String numerics(){
-        String a = "";
-        for(double num = 0; num < 10; num++){
-            a = a + String.valueOf(num);
-        }
-        return a;
-    }
-    */
     public static ArrayList<String> operation(ArrayList<String> in){
         double result = 0;
         double a,b = 0;

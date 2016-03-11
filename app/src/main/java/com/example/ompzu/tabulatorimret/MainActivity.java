@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }
             nr = savedInstanceState.getString("nr");
             input = savedInstanceState.getStringArrayList("input");
-
         }
         textViewResult = (TextView) findViewById(R.id.textViewResult);
     }
@@ -69,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 btnId = ".";
                     nr = nr + btnId;
                     showEquation = showEquation + btnId;
-
-
             } else if(!btnId.equals("K")) {
                 if(btnId.equals("0") && !nr.equals("0")){
                     nr = nr + btnId; //click 7 nr is 7, click 4 and nr is 74, click 1 nr is 741
@@ -79,11 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     nr = nr + btnId; //click 7 nr is 7, click 4 and nr is 74, click 1 nr is 741
                     showEquation = showEquation + btnId;
                 }
-
-
             }
-
-
         }
 
         if (btnId.equals("P") || btnId.equals("M") || btnId.equals("X") || btnId.equals("D") ||
@@ -96,10 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 showEquation = showEquation + btn.getText().toString(); //displays operation marks
                 input.add(btnId);
             }
-
         }
-
-
 
         if(btnId.contains("C")) { //input is Clear function
             input.clear(); //clean arrayList
@@ -110,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         }
         int firstOsCheck = 0;
         int secondOsCheck= 0;
-       // input.add(nr);
         if(input.size() > 0){
             firstOsCheck = CalcEngine.compare(input.get(0)); //returns 0 if string in arraylist slot equals to operation, else its number
         }
@@ -139,10 +128,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-      /*  if(input.size() == 1){
-            showResult = input.get(0);
-        }
-*/
         textViewResult = (TextView) findViewById(R.id.textViewResult);
         if(btnId.equals("E") || (btnId.equals("P") || btnId.equals("M") || btnId.equals("X") || btnId.equals("D") ||
                 btnId.equals("W") || btnId.equals("N") || btnId.equals("S") && input.size() > 2)) { //lets continue calculate w/o pressing "=" but any other
@@ -156,13 +141,10 @@ public class MainActivity extends AppCompatActivity {
             if(input.size() == 1){
                 showEquation = showEquation + "=" + showResult + " " ;
             }
-
             textViewResult.setText(showEquation);
         } else  {
             textViewResult.setText(showEquation + " ");
-
         }
-
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "Button clicked: " + btnId + " in array: " + input.toString() + " And nr: " + nr);
         }
