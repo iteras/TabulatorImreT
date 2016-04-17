@@ -12,11 +12,11 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <receiver android:name="com.ompzu.calculatorui.android.GIVE_INPUT">
+                <intent-filter>
+                    <action android:name="com.ompzu.calculatorui.android.GIVE_INPUT" />
+                </intent-filter>
+            </receiver>
         </activity>
     </application>
 

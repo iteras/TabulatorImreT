@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CalculatorIT.iml" filepath="$PROJECT_DIR$/CalculatorIT.iml" />
       <module fileurl="file://$PROJECT_DIR$/TabulatorImreT.iml" filepath="$PROJECT_DIR$/TabulatorImreT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TabulatorImreTNew.iml" filepath="$PROJECT_DIR$/TabulatorImreTNew.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
